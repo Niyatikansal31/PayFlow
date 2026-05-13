@@ -1,6 +1,8 @@
 import STATUS_CODES from "../utils/StatusCodes.js";
 import User from "../models/User.js";
 import bcrypt from "bcryptjs"
+import Wallet from "../models/Wallet.js";
+
 const signup=async (req,res)=>{
     try{
         const {name,email,password}=req.body;
@@ -12,6 +14,13 @@ const signup=async (req,res)=>{
             password: authPassword
         })
         await newUser.save()
+        
+        const newWallet=new Wallet({
+            userId: newUser._id,
+            balance: 1000
+        })
+        await newWallet.save()
+
         res.status(STATUS_CODES.CREATED).json({
             success: true,
             msg: "User Created!"

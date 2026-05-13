@@ -18,6 +18,7 @@ const Checker=async (req,res,next)=>{
                 success: false,
                 msg: "User does not Exist!"
             })
+            return;
         }
         next();
     }catch(err){

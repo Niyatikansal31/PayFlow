@@ -27,7 +27,7 @@ const login=async(req,res)=>{
             })
             return;
         }
-        const jwtToken=await jwt.sign({email: email},process.env.JWT_SECRET_KEY)
+        const jwtToken=await jwt.sign({id: reqUser._id,email: email},process.env.JWT_SECRET_KEY)
         res.status(STATUS_CODES.OK).json({
             success: true,
             token: jwtToken
