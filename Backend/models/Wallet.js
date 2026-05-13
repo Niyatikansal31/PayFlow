@@ -2,12 +2,12 @@ import mongoose from "mongoose"
 
 const WalletSchema=mongoose.Schema({
     userId: {
-        type: String,
+        type: Object,
         required: true,
         unique: true
     },
     balance: {
-        type: String,
+        type: Number,
         required: true
     }
 })

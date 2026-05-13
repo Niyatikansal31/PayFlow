@@ -14,6 +14,7 @@ const LoggedIn=async (req,res,next)=>{
             })
             return;
         }
+        req.user={id: response.id}
         next();
     }catch(err){
         res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json({
