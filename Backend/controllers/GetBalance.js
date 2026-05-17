@@ -12,7 +12,6 @@ const GetBalance=async (req,res)=>{
             "balance": user.balance
         })
     }catch(err){
-        console.log(err)
         res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json({
             success: false,
             msg: "Error fetching balance!"
