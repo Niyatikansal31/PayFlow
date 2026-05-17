@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 const WalletSchema=mongoose.Schema({
     userId: {
-        type: Object,
+        type: String,
         required: true,
         unique: true
     },
